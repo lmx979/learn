@@ -1,0 +1,126 @@
+.box {
+    width: 920px;
+    height: 100px;
+    background: yellowgreen;
+}
+
+.box div {
+    width: 300px;
+    height: 100px;
+    background: red;
+    margin-right: 10px;
+    float: left;
+}
+
+/*
+    ':'：伪类选择器
+    first-child：第一个子元素
+    last-child：最后一个子元素
+*/
+.box div:last-child {
+    margin-right: 0px;
+}
+
+/* nth-child：第几个子元素 */
+ul li:nth-child(2) {
+    color: green;
+}
+
+/* 偶数/奇数个子元素：2n(even) / 2n+1(odd) */
+ol li:nth-child(2n+1) {
+    background: grey;
+}
+
+ol li:nth-child(even) {
+    background: red;
+}
+
+/* 只有一个子元素选择器 */
+ul li:only-child {
+    font-size: 20px;
+    color: pink;
+}
+
+/* 空元素(没有子元素)选择器  注意空格换行 */
+div:empty {
+    width: 100px;
+    height: 100px;
+    background: pink;
+}
+
+/* 根节点选择器(html) */
+:root,body {
+    margin: 0;
+    padding: 0;
+}
+
+/* :target：目标伪类选择器 */
+.div1 p {
+    display: none;
+}
+
+.div1 p:target {
+    display: block;
+    border: 1px solid pink;
+}
+
+.div1 a {
+    text-decoration: none;
+    color: pink;
+    font-size: 20px;
+}
+
+
+/* 
+    状态伪类选择器
+    1.enabled：可用状态
+    2.disabled：禁用状态
+    3.checked：选中状态
+    4.focus：焦点状态
+*/
+input:enabled {
+    background: #ccc;
+}
+
+input:disabled {
+    background: orange;
+}
+
+input:focus {
+    background: white;
+}
+
+input[type=checkbox] {
+    /* appearance：去掉选择框的默认样式 */
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+}
+
+input:checked {
+    background: brown;
+}
+
+/* selection：元素被用户选中或处于高亮状态 */
+.div2 p::selection {
+    background: brown;
+    color: white;
+}
+
+
+/*
+    not()：否定伪类选择器
+*/
+.div3 li:not(:first-child) {
+    color: yellowgreen;
+}
+
+
+/*
+    动态伪类选择器
+    1.link：链接未被访问过
+    2.visited：链接已被访问过
+    3.active：元素被激活，常用语链接锚点和按钮
+    4.hover：鼠标停留在元素上
+*/

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1 {
+            /* 文本阴影 */
+            text-shadow: 10px 15px 2px green, -10px -15px 5px pink;
+            /*
+                1.10px：水平方向的位移(右移)，可为负值(左)
+                2.15px：垂直方向的位移(右移)，可为负值(左)
+                3.1px：模糊程度。值越大越模糊
+                4.green：阴影颜色
+                5.一个元素可以有多个阴影，用逗号隔开
+            */
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background: olive;
+            /* 盒子阴影 */
+            box-shadow: 10px 15px 5px 20px #ccc inset;
+            /*
+                1.10px：水平方向的位移(右移)，可为负值(左)
+                2.15px：垂直方向的位移(右移)，可为负值(左)
+                3.5px：模糊程度。值越大越模糊
+                4.20px：阴影大小
+                5.#ccc：阴影颜色
+                6.inset:内阴影(不加默认外阴影)
+                7.一个元素可以有多个阴影，用逗号隔开
+            */
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background: paleturquoise;
+            margin: 0 auto;
+            /* 边框圆角属性：可用百分比*/
+            border-radius: 20px 60px 30px;
+            /*
+                1.value1：四个角
+                2.value2：左上角右下角 ， 右上角左下角
+                3.value3：左上角 ， 右上角左下角 ， 右下角
+                4.value4：(顺时针) 左上角 ， 右上角 ， 右下角 ， 左下角
+                5.value/value：
+            */
+
+            /* 可设置某一个角 */
+            border-top-right-radius: 100px;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 100px;
+            background: red;
+            /* value/value：水平方向/垂直方向 */
+            border-radius: 50px/20px;
+            /* border-radius: 50px 100px 50px 100px/20px 30px 20px 30px; */
+        }
+
+        .box4 {
+            width: 200px;
+            height: 100px;
+            background: yellow;
+            margin: 0 auto;
+            /* 半圆 */
+            border-radius: 100px 100px 0 0;
+        }
+
+        .box5 {
+            width: 100px;
+            height: 100px;
+            background: green;
+            /* 弧形 */
+            border-radius: 100px 0 0 0;
+        }
+
+        /* 阴影和圆角案例 */
+        .div {
+            width: 800px;
+            height: 80px;
+            border: 1px solid #dedede;
+            margin: 0 auto;
+            background: #eceaeb;
+            border-radius: 15px;
+            box-shadow: 5px 10px 7px #bfbfbf,-5px 10px 7px #bfbfbf;
+        }
+        [type=text] {
+            width: 600px;
+            height: 60px;
+            margin: 8px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 22px;
+            /* text-indent：缩进 */
+            text-indent: 20px;
+        }
+        [type=button] {
+            width: 150px;
+            height: 60px;
+            background: #53a9be;
+            border-radius: 5px;
+            border: 2px solid #5ca3b4;
+            color: white;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lumxx</h1>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+
+    <!-- 案例 -->
+    <div class="div">
+        <input type="text" placeholder="Search for CSS3 ,HTML5 ,JQuery...">
+        <input type="button" value="GO">
+    </div>
+</body>
+
+</html>

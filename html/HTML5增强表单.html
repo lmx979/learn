@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 增强表单 -->
+    <h1>增强表单</h1>
+    <form action="">
+        <!-- 颜色选择 -->
+        颜色选择：<input type="color" name="color"><br>
+
+        <!-- 手机端唤起拨号键 -->
+        手机号：<input type="tel" name="tel"><br>
+
+        <!-- 搜索 -->
+        搜索：<input type="search" name="search"><br>
+
+        <!-- 滑动条 -->
+        <!-- 
+            min,max：滑块的最小最大值(区间) 
+            step：步长
+            value：初始值
+        -->
+        滑动条：<input type="range" name="range" min="20" max="150" step="10" value="30"><br>
+
+        <!-- 限制用户必须输入正确的email格式 -->
+        email：<input type="email" name="email"><br>
+
+        <!-- 限制用户必须输入正确的完整的URL网址格式 -->
+        url:<input type="url" name="url"><br>
+
+        <!-- 数字类型 -->
+        数字：<input type="number" name="num" min="2" max="20" value="8" step="2"><br>
+
+        <!-- 日期选择框 -->
+        日期选择：<input type="date" name="date"><br>
+        月份选择：<input type="month" name="mon"><br>
+        周数选择：<input type="week" name="week"><br>
+        时间选择：<input type="time" name="time"><br>
+        精确本地时间：<input type="datetime-local" name="datetime"><br>
+
+        <input type="submit" value="提交">
+    </form>
+
+    <!-- 数据列表标签 -->
+    <div>
+        <h1>选项列表</h1>
+
+        <!-- 通过list属性关联datalist数据列表标签 -->
+        <input type="text" list="mylist">
+        <!-- 可实现快速模糊搜索 -->
+        <datalist id="mylist">
+            <option value="html5"></option>
+            <option value="css3"></option>
+            <option value="javascript"></option>
+            <option value="jquery"></option>
+            <option value="vue"></option>
+        </datalist>
+    </div>
+
+    <!-- 表单属性 -->
+    <h1>表单属性</h1>
+    <form action="">
+
+        <!-- 
+            autofocus：自动获取焦点
+            pattern：正则表达式，验证代码
+        -->
+        用户名：<input type="text" name="uname" autofocus pattern="[0-9][A-Z]{3}" 
+                placeholder="1个数字+3个大写字母"><br>
+
+        <!-- 
+            required：必填属性 
+            multiple：在邮箱中，支持多个邮箱地址，用英文逗号隔开(还可用于file属性，按住ctrl/shift选择多个文件)
+        -->
+        邮箱：<input type="email" name="email" required multiple><br>
+        文件：<input type="file" name="file"><br>
+
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        textarea{
+            width: 150px;
+            height: 150px;
+
+            /* 重新设置大小：both(默认) / vertical / horizontal / none */
+            resize: horizontal;
+        }
+
+        fieldset{
+            width: 20%;
+            height: 100px;
+        }
+
+        legend{
+            text-align: right;
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 单选框 -->
+    <div>
+        <p>选择性别</p>
+
+        <!-- checked属性值表示默认选择 -->
+        <!-- 相同的name属性值表示为同一个单选框组 -->
+        <input type="radio" name="sex" id="man" checked>
+        <!-- input中的id属性对应lable中的for属性：表示点击文字选择相应的id单选框 -->
+        <label for="woman">男</label>
+        <input type="radio" name="sex" id="woman">
+        <label for="man">女</label>
+    </div>
+
+    <!-- 复选框 -->
+    <div>
+        <p>兴趣爱好</p>
+
+        <input type="checkbox" name="hobit" id="sing" checked>
+        <label for="sing">唱歌</label>
+        <input type="checkbox" name="hobit" id="game" checked>
+        <label for="game">玩游戏</label>
+        <input type="checkbox" name="hobit" id="computer">
+        <label for="computer">计算机</label>
+    </div>
+
+    <!-- 上传文件 -->
+    <div>
+        <p>选择文件</p>
+
+        <form action="">
+            <input type="file">
+
+            <!-- 图片按钮：代替提交按钮(input type="submit") -->
+            <input type="image" src="../img/submit1.png">
+        </form>
+    </div>
+
+    <!-- 隐藏按钮 -->
+    <div>
+        <p>隐藏按钮</p>
+        <input type="hidden" name="" id="" value="带给后端的个人信息">
+    </div>
+
+    <!-- 禁用/只读 -->
+    <div>
+        <button disabled>注册</button>
+        <input type="radio" disabled>不满意
+        <input type="text" value="123321" disabled>
+    </div>
+
+    <!-- 下拉菜单 -->
+    <div>
+        <p>选择地址</p>
+
+        <!-- select支持的属性：
+            1.size：显示几个选项
+            2.multiple：(按住ctrl/shift键)可多选
+        -->
+        <select size="3" multiple>
+
+            <!-- option支持的属性：
+                1.value：提供给后端需要用的value值
+                2.selected：默认选中
+            -->
+            <option value="cq">重庆</option>
+            <option value="bj">北京</option>
+            <option value="sh">上海</option>
+            <option value="sz" selected>深圳</option>
+        </select>
+    </div>
+
+    <!-- 文本域/多行文本 -->
+    <div>
+        <p>建议反馈</p>
+
+        <!-- cols：列数 / rows：行数 (一般不用这个，用css控制textarea的宽和高) -->
+        <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+
+        <!-- 
+            placeholder：预置文本(提示语句)
+            默认value：写在textarea双标签内部(注意空格和换行问题)
+        -->
+        <textarea placeholder="请输入你的意见"></textarea>
+    </div>
+
+    <!-- 字段集 -->
+    <fieldset>
+
+        <!-- legend标签可设置显示的位置/大小/样式/边距/边框等属性 -->
+        <legend>性别</legend>
+        
+        <input type="radio" name="sex">男<br>
+        <input type="radio" name="sex">女
+    </fieldset>
+</body>
+
+</html>
