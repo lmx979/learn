@@ -21,7 +21,7 @@
         .box1 div {
             width: 100px;
             height: 100px;
-            border: 2px double gold;
+            border: 2px double palevioletred;
         }
 
         .box2 span {
@@ -33,8 +33,149 @@
         .box3 span {
             width: 100px;
             height: 100px;
-            border: 2px solid blue;
+            border: 2px solid palevioletred;
             margin: auto;
+        }
+
+
+        /* 修改弹性盒主轴方向(默认水平方向) */
+        .box4 {
+            width: 500px;
+            height: 500px;
+            border: 5px solid red;
+            margin: 10px auto;
+            display: flex;
+
+            /*
+                flex-direction弹性盒方向：
+                1.row：水平排列
+                2.cloumn：竖直排列
+                3.row-reverse：水平反向排列
+                4.column-reverse：垂直反向排列
+            */
+            flex-direction: column;
+
+            /*
+                justify-content调整主轴对齐方式：
+                1.flex-start：头部对齐
+                2.flex-end：尾部对齐
+                3.center：居中对齐
+                4.space-around：环绕对齐
+                5.space-between：两端对齐
+            */
+            justify-content: space-around;
+
+            /*
+                align-items调整侧轴对齐方式：
+                1.flex-start：头部对齐
+                2.flex-end：尾部对齐
+                3.center：居中对齐
+            */
+            align-items: center;
+        }
+
+        .box4 div {
+            width: 100px;
+            height: 100px;
+            border: 5px double blue;
+        }
+
+        .box5 {
+            width: 500px;
+            height: 500px;
+            border: 3px solid blue;
+            margin: 10px auto;
+            display: flex;
+            justify-content: space-around;
+
+            /* flex-wrap：折行 */
+            flex-wrap: wrap;
+
+            /*
+                align-content：控制折行后的行间距
+                1.flex-start：头部对齐
+                2.flex-end：尾部对齐
+                3.center：居中对齐
+                4.space-around：环绕对齐
+                5.space-between：两端对齐
+            */
+            align-content: space-between;
+        }
+
+        .box5 div {
+            width: 100px;
+            height: 100px;
+            border: 3px double red;
+        }
+
+        .box6 {
+            width: 500px;
+            height: 200px;
+            border: 10px double darkorange;
+            margin: 10px auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box6 div {
+            width: 100px;
+            border: 5px solid pink;
+        }
+
+        .box6 .div1 {
+            /* align-self：控制项目元素自身的对齐方式 */
+            align-self: center;
+        }
+
+        .box6 .div3 {
+            /* stretch：拉伸效果(是默认效果；前提是不设置它的高度或宽度) */
+            align-self: stretch;
+        }
+
+        .box6 .div4 {
+            align-self: flex-end;
+        }
+
+        .box7 {
+            width: 500px;
+            height: 200px;
+            border: 3px solid darkred;
+            margin: 10px auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .box7 div {
+            width: 100px;
+            height: 100px;
+            border: 5px double darkslategray;
+        }
+
+        .box7 div:nth-child(3) {
+            /* order：顺序(默认值为0。权重越大越靠后；可为负值) */
+            order: -1;
+        }
+        
+        .box8 {
+            width: 1000px;
+            height: 600px;
+            border: 1px solid black;
+            display: flex;
+            margin: auto;
+            /* 设置主轴为垂直方向 */
+            flex-direction: column;
+        }
+
+        .box8 .left,.right {
+            background: #ccc;
+            /* 如果有多个，则按比例占位 */
+            flex: 1;
+        }
+        
+        .box8 .center {
+            background: brown;
+            /* 如果只有一个，则占满剩余空间 */
+            flex: 4;
         }
     </style>
 </head>
@@ -66,6 +207,53 @@
     <div class="box3">
         <!-- 3 -->
         <span>lmxx</span>
+    </div>
+
+    <!-- 修改主轴方向 -->
+    <!-- 主轴侧轴对齐方式 -->
+    <div class="box4">
+        <div>11111</div>
+        <div>22222</div>
+        <div>33333</div>
+        <div>44444</div>
+    </div>
+
+    <!-- 折行与行间距 -->
+    <div class="box5">
+        <div>11111</div>
+        <div>22222</div>
+        <div>33333</div>
+        <div>44444</div>
+        <div>11111</div>
+        <div>22222</div>
+        <div>33333</div>
+        <div>33333</div>
+        <div>33333</div>
+        <div>33333</div>
+    </div>
+
+    <!-- 项目(弹性盒内部的元素)对齐方式 -->
+    <div class="box6">
+        <div class="div1">aaa</div>
+        <div class="div2">bbb</div>
+        <div class="div3">ccc</div>
+        <div class="div4">ddd</div>
+    </div>
+
+    <!-- 调整项目顺序 -->
+    <div class="box7">
+        <div>lmx1</div>
+        <div>lmx2</div>
+        <div>lmx3</div>
+        <div>lmx5</div>
+        <div>lmx6</div>
+    </div>
+
+    <!-- 设置项目剩余宽高(可应用与三栏布局) -->
+    <div class="box8">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
     </div>
 </body>
 

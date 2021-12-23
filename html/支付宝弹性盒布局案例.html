@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 引入字体图标文件 -->
+    <link rel="stylesheet" href="../font/iconfont_zfb/iconfont.css">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 400px;
+            height: 700px;
+            border: 2px solid #ccc;
+            display: flex;
+            margin: auto;
+            flex-direction: column;
+        }
+
+        header {
+            height: 45px;
+            background: #ccc;
+            display: flex;
+        }
+
+        header i {
+            width: 55px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 35px;
+            text-align: center;
+            color: white;
+        }
+
+        header span {
+            flex: 1;
+            height: 45px;
+            font-size: 20px;
+            line-height: 45px;
+            color: white;
+        }
+
+        section {
+            flex: 1;
+            background: #ccc;
+        }
+
+        .main {
+            display: flex;
+            height: 120px;
+            background: white;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .main div {
+            width: 85px;
+            height: 95px;
+            background: wheat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main div i {
+            height: 60px;
+            line-height: 60px;
+            font-size: 55px;
+            text-align: center;
+        }
+
+        .main div span {
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            background: white;
+            margin-top: 18px;
+        }
+
+        .list div {
+            width: 25%;
+            height: 90px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .list div i {
+            height: 35px;
+            line-height: 35px;
+            font-size: 35px;
+            text-align: center;
+        }
+
+        .list div span {
+            height: 23px;
+            line-height: 23px;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .pic {
+            margin-top: 20px;
+        }
+
+        .pic img {
+            width: 400px;
+            height: 120px;
+        }
+
+        footer {
+            height: 90px;
+            background: salmon;
+            display: flex;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #acadaf;
+            background: white;
+            flex: 1;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        footer a i {
+            font-size: 35px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        footer a span {
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+        }
+
+        footer a:hover {
+            color: #06a9ee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <header>
+            <i class="iconfont icon-saoma"></i>
+            <span>账单</span>
+            <i class="iconfont icon-renminbi"></i>
+            <i class="iconfont icon-fapiao"></i>
+            <i class="iconfont icon-quanlingyuguimo"></i>
+        </header>
+
+        <section>
+            <div class="main">
+                <div>
+                    <i class="iconfont icon-saoma"></i>
+                    <span>扫一扫</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-renminbi"></i>
+                    <span>付款</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-fapiao"></i>
+                    <span>卡券</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-quanlingyuguimo"></i>
+                    <span>更多</span>
+                </div>
+            </div>
+
+            <div class="list">
+                <div>
+                    <i class="iconfont icon-saoma"></i>
+                    <span>信用卡还款</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-renminbi"></i>
+                    <span>记账本</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-fapiao"></i>
+                    <span>股票</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-quanlingyuguimo"></i>
+                    <span>理财小工具</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-saoma"></i>
+                    <span>淘宝</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-renminbi"></i>
+                    <span>充值</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-fapiao"></i>
+                    <span>亲密付</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-quanlingyuguimo"></i>
+                    <span>机票火车票</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-saoma"></i>
+                    <span>转账</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-renminbi"></i>
+                    <span>外卖</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-fapiao"></i>
+                    <span>旅行</span>
+                </div>
+                <div>
+                    <i class="iconfont icon-quanlingyuguimo"></i>
+                    <span>更多</span>
+                </div>
+            </div>
+
+            <div class="pic">
+                <img src="../img/login.png" alt="">
+            </div>
+        </section>
+
+        <footer>
+            <a href="">
+                <i class="iconfont icon-saoma"></i>
+                <span>支付宝</span>
+            </a>
+            <a href="">
+                <i class="iconfont icon-renminbi"></i>
+                <span>信用卡还款</span>
+            </a>
+            <a href="">
+                <i class="iconfont icon-fapiao"></i>
+                <span>信用卡还款</span>
+            </a>
+            <a href="">
+                <i class="iconfont icon-quanlingyuguimo"></i>
+                <span>信用卡还款</span>
+            </a>
+        </footer>
+    </div>
+</body>
+
+</html>
