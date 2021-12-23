@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background: brown;
+            padding: 30px;
+            border: 10px solid black;
+
+            /* box-sizing属性：允许以特定的方式定义匹配某个区域的特定元素 */
+            /* 标准盒模型：在宽度高度之外绘制元素的内边距和边框 */
+            box-sizing: content-box;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background: burlywood;
+            margin-top: 100px;
+            padding: 30px;
+            border: 10px solid black;
+
+            /* 怪异盒模型：在已设定的宽度高度内绘制内边距和边框，内容的宽高度随着内边距和边框的改变而改变 */
+            box-sizing: border-box;
+        }
+
+        /* 案例 */
+        .div{
+            width: 900px;
+            height: 300px;
+            background: brown;
+            margin: 0 auto;
+        }
+
+        .div div{
+            width: 300px;
+            height: 300px;
+            background: cadetblue;
+            text-align: center;
+            float: left;
+
+            padding: 10px;
+            border: 5px solid gold;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <!-- 案例 -->
+    <div class="div">
+        <div>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae et necessitatibus, corrupti assumenda
+            voluptates quo tenetur? Quod voluptas atque architecto, dolores ad quas ut omnis sint nesciunt, laboriosam,
+            amet assumenda.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, fugiat magnam. Maxime obcaecati ea incidunt
+            sed magnam. Cum neque expedita nobis quas, officiis accusamus commodi, architecto, cupiditate dolorem ea
+            enim!
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, voluptatum commodi maxime ducimus animi
+            aliquid aut beatae a rerum velit consequuntur voluptatibus quis explicabo esse. Reprehenderit quibusdam
+            autem asperiores culpa?
+        </div>
+    </div>
+</body>
+
+</html>

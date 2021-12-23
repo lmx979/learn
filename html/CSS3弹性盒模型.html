@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1,.box2,.box3 {
+            width: 500px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 10px auto;
+
+            /* 弹性盒 */
+            display: flex;
+        }
+
+        .box1 div {
+            width: 100px;
+            height: 100px;
+            border: 2px double gold;
+        }
+
+        .box2 span {
+            width: 100px;
+            height: 100px;
+            border: 2px solid gray;
+        }
+
+        .box3 span {
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 弹性盒是一种新的布局方式，特别适合移动端布局 -->
+    <!-- 
+        fle的影响：
+        1.子元素默认横向排列
+        2.行内元素变成块级元素(可设置宽高度)
+        3.只有一个元素时，margin:auto 自动水平垂直居中
+    -->
+    <div class="box1">
+        <!-- 1 -->
+        <div>11111</div>
+        <div>22222</div>
+        <div>33333</div>
+        <div>44444</div>
+        <div>55555</div>
+    </div>
+    <div class="box2">
+        <!-- 2 -->
+        <span>12</span>
+        <span>23</span>
+        <span>34</span>
+        <span>45</span>
+        <span>56</span>
+    </div>
+    <div class="box3">
+        <!-- 3 -->
+        <span>lmxx</span>
+    </div>
+</body>
+
+</html>
