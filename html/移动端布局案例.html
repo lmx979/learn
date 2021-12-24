@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../font/iconfont_zfb/iconfont.css">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root,body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            height: 45px;
+            background: #0cc440;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header div {
+            width: 65px;
+            height: 25px;
+            line-height: 25px;
+            font-size: 15px;
+            text-align: center;
+            background: #3fcf68;
+            color: #a9e4b4;
+        }
+
+        header div:first-child {
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        header div:last-child {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        header div:hover {
+            background: #61d482;
+            color: white;
+        }
+
+        section {
+            flex: 1;
+            overflow: auto;
+        }
+
+        section ul {
+            display: flex;
+            list-style: none;
+            position: sticky;
+            top: 0px;
+            background: white;
+        }
+
+        section ul li{
+            flex: 1;
+            text-align: center;
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid #d9d9d9;
+        }
+
+        section ul li:hover {
+            color: #0cc440;
+            border-bottom: 2px solid #0cc440;
+        }
+
+        section .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        section .main>div {
+            width: 49%;
+            margin-top: 4px;
+            border: 1px solid gray;
+        }
+
+        section .main>div img {
+            width: 100%;
+        }
+
+        section .main>div p {
+            height: 30px;
+            line-height: 30px;
+            font-size: 15px;
+            text-indent: 10px;
+        }
+
+        footer {
+            height: 45px;
+            background: white;
+            color: #d5d5d7;
+        }
+
+        footer ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        footer li {
+            height: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        footer i {
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        footer span {
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        footer li:nth-child(3) {
+            position: relative;
+        }
+
+        footer li:nth-child(3) i {
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+            border-radius: 25px;
+            position: absolute;
+            left: 50%;
+            margin-left: -25px;
+            top: -7px;
+            font-size: 35px;
+            line-height: 50px;
+            text-align: center;
+            background: white;
+        }
+
+        footer li:hover {
+            color: #0cc440;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>热点</div>
+        <div>关注</div>
+    </header>
+    <section>
+        <ul>
+            <li>足球现场</li>
+            <li>足球生活</li>
+            <li>足球明星</li>
+        </ul>
+        <div class="main">
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx1</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx2</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx3</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx4</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx5</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx6</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx7</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx8</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx9</p>
+            </div>
+            <div>
+                <img src="../img/暴富.jpg" alt="">
+                <p>lmxx0</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <ul>
+            <li>
+                <i class="iconfont icon-quanlingyuguimo"></i>
+                <span>首页</span>
+            </li>
+            <li>
+                <i class="iconfont icon-fapiao"></i>
+                <span>发现</span>
+            </li>
+            <li>
+                <i class="iconfont icon-quanlingyuguimo"></i>
+            </li>
+            <li>
+                <i class="iconfont icon-renminbi"></i>
+                <span>我的</span>
+            </li>
+            <li>
+                <i class="iconfont icon-saoma"></i>
+                <span>退出</span>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>
