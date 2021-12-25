@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .column {
+            height: 300px;
+            background: wheat;
+
+            /* 控制显示的列数 */
+            column-count: 5;
+
+            /* 调整列间距 */
+            column-gap: 30px;
+
+            /* 设置列边框 */
+            column-rule: 2px solid darkred;
+
+            /* 列高度统一(值为auto时：把父盒子占满) */
+            column-fill: balance;
+
+            /* 调整列宽(宽度过大会影响列数) */
+            column-width: 200px;
+        }
+
+        .column h1 {
+            /*
+                跨列(只有两个值)：
+                1.none：不跨列
+                2.all：横跨所有的列
+            */
+            column-span: all;
+            text-align: center;
+        }
+
+        .box {
+            column-count: 6;
+        }
+
+        .box h1 {
+            column-span: all;
+            text-align: center;
+            margin: 20px 0 20px 0;
+        }
+
+        .box div {
+            border: 3px solid darkred;
+            padding: 8px;
+            margin-bottom: 20px;
+
+            /* 禁止盒子内部进行折行 */
+            break-inside: avoid;
+        }
+
+        .box img {
+            width: 100%;
+        }
+
+        .box p {
+            font-size: 20px;
+            color: darkred;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="column">
+        <h1>Lumxx</h1>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis nobis, ullam, officia ipsum molestiae cumque
+        iure modi iste nihil, maiores natus consequatur ut? Hic quod aperiam atque aspernatur deserunt!
+        Quam molestiae totam illo odio? Perspiciatis vero similique iusto cupiditate labore cum dolore, reiciendis at
+        tempore possimus? Velit incidunt nemo enim magnam voluptatibus corporis similique deserunt optio nisi!
+        Similique, dolores!
+        Eligendi ratione vero quaerat ab sed cum vel autem neque velit, veniam exercitationem qui molestiae labore. Amet
+        quas accusantium culpa maiores nemo aliquam, non deleniti nobis molestiae debitis molestias corrupti.
+        Porro id optio beatae quam velit earum reprehenderit tempore culpa natus obcaecati. Consectetur iure ipsa
+        cupiditate. Illo soluta itaque sint rerum. Hic dicta consequuntur, ipsum deleniti reprehenderit quis aut in.
+        Praesentium numquam officia ullam distinctio quasi dignissimos aperiam cupiditate dolorum repellendus autem
+        ducimus accusamus, commodi molestiae dolor sed consequatur laborum, a cumque expedita, quis sapiente doloremque
+        odit eveniet. Ullam, molestias!
+        Quibusdam illum consequuntur reiciendis laboriosam deserunt, et iure sequi, asperiores, ratione saepe laudantium
+        ut corporis? Earum perferendis cupiditate ut non, natus corporis dicta reiciendis. Nihil harum nam odit. Esse,
+        quae?
+    </div>
+
+    <!-- 案例 -->
+    <div class="box">
+        <h1>瀑布流效果</h1>
+        <div>
+            <img src="../img/rb1.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb4.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb3.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb2.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb2.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb5.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb4.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb3.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb2.jpg" alt="">
+            <p>lmx</p>
+        </div>
+        <div>
+            <img src="../img/rb5.jpg" alt="">
+            <p>lmx</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            margin-top: 10px;
+        }
+
+        .div1 {
+            width: 300px;
+            height: 300px;
+            border: 5px solid goldenrod;
+
+            /*
+                linear-gradient线性渐变(支持多颜色渐变)
+                to top / bottom / left / right：可改变方向(也支持四个角的方向)
+                deg：支持角度方向(即任意方向)
+            */
+            /* background: linear-gradient(to top right,red,blue,green,orange); */
+            background: linear-gradient(49deg,red,blue,green);
+        }
+
+        .div2 {
+            width: 200px;
+            height: 200px;
+            border: 5px solid teal;
+
+            /*
+                radial-gradient径向渐变
+                百分数表示10%-30%为红到蓝的过渡，30%-80%为蓝到绿的过渡，80%-100%为绿色渐变
+            */
+            background: radial-gradient(red 10%,blue 30%,green 80%);
+        }
+
+        .div3 {
+            width: 500px;
+            height: 200px;
+            border: 5px solid tan;
+
+            /*
+                在长方形盒子中渐变为椭圆形
+                circle：改变渐变形状为圆形
+            */
+            background: radial-gradient(circle,red 10%,blue 30%,green 80%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 线性渐变 -->
+    <div class="div1"></div>
+
+    <!-- 径向渐变 -->
+    <div class="div2"></div>
+    <div class="div3"></div>
+</body>
+
+</html>
