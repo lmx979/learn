@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .swiper-container {
+            width: 700px;
+            height: 400px;
+            border: 1px solid cadetblue;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .swiper-container img {
+            width: 700px;
+            height: 400px;
+        }
+
+        .swiper-wrapper {
+            width: 5555px;
+            animation: lunbo 10s linear infinite;
+        }
+
+        .swiper-slide {
+            float: left;
+        }
+
+        .swiper-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        /* 用纯CSS属性模拟JS轮播效果 */
+        @keyframes lunbo {
+            0%{
+                transform: translateX(0);
+            }
+            5%{
+                transform: translateX(-700px);
+            }
+            25%{
+                transform: translateX(-700px);
+            }
+            30%{
+                transform: translateX(-1400px);
+            }
+            50%{
+                transform: translateX(-1400px);
+            }
+            55%{
+                transform: translateX(-2100px);
+            }
+            75%{
+                transform: translateX(-2100px);
+            }
+            80%{
+                transform: translateX(-2800px);
+            }
+            100%{
+                transform: translateX(-2800px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="../img/bg1.jpeg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/bg2.jpeg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/bg1.jpeg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/bg2.jpeg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="../img/bg1.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

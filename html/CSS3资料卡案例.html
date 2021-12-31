@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 380px;
+            background: 2px solid gray;
+            border: 2px double red;
+            overflow: hidden;
+            position: relative;
+            float: left;
+            margin-right: 30px;
+        }
+
+        div img {
+            display: block;
+            width: 100%;
+            transition: all 0.5s linear;
+        }
+
+        div:hover img {
+            transform: translateX(20px);
+            opacity: 0.8;
+        }
+
+        div h2 {
+            position: absolute;
+            left: 20px;
+            top: 30px;
+            color: white;
+            transition: all 0.5s linear 0.3s;
+        }
+
+        div:hover h2 {
+            transform: translate(20px);
+        }
+
+        div p {
+            position: absolute;
+            left: 50px;
+            width: 100px;
+            color: white;
+            background: darkblue;
+            transition: all 0.5s ease-in;
+        }
+
+        div .p1 {
+            top: 150px;
+            transform: translateY(400px);
+        }
+
+        div:hover .p1 {
+            top: 150px;
+            transform: translateY(0px);
+        }
+
+        div .p2 {
+            top: 200px;
+            transform: translateX(-200px);
+        }
+
+        div:hover .p2 {
+            top: 200px;
+            transform: translateX(0px);
+        }
+
+        div .p3 {
+            top: 250px;
+            transform: translateX(300px);
+        }
+
+        div:hover .p3 {
+            top: 250px;
+            transform: translateX(0px);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="../img/rb1.jpg" alt="">
+        <h2>dilireba</h2>
+        <p class="p1">11111</p>
+        <p class="p2">22222</p>
+        <p class="p3">33333</p>
+    </div>
+</body>
+
+</html>

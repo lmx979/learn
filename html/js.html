@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义一个变量
+        var num = 100;
+        var a = true;
+        var b = null;
+
+        // 在浏览器弹窗显示num变量的值
+        alert(num);
+
+        // 在控制台(F12)打印num的值
+        console.log(num);
+
+        // 直接在页面输出num的值
+        document.write(num + '</br>');
+
+        // 检测变量类型
+        var result1 = typeof a;
+        console.log(result1);
+        var result2 = typeof b;
+        console.log(result2);
+
+        // 数据类型转换
+        // 1.转数值：Number(要转换的内容); / parseInt(内容); / parseFloat(内容);
+        // 2.转字符：String(内容); / 内容.toString();
+        // 3.转布尔：Boolean(内容);
+
+        // 分支语句判断平闰年
+        var year = 2022
+        if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+            alert(year + '是闰年')
+        } else {
+            alert(year + '是平年')
+        }
+
+        // 递归函数：一个函数调用了它自身，这种现象称为递归
+        // 斐波那契数列
+        function fn(n) {
+            if (n == 1 || n == 2)
+                return 1
+            return fn(n - 1) + fn(n - 2)
+        }
+        fbnq = fn(8)
+        document.write(fbnq + '</br>')
+
+        // 冒泡排序
+        var array1 = [8, 4, 5, 6, 9, 7, 1, 2, 3]
+        for (j = 1; j < array1.length; j++) {
+            for (i = 0; i < array1.length - j; i++) {
+                if (array1[i] > array1[i + 1]) {
+                    t = array1[i + 1]
+                    array1[i + 1] = array1[i]
+                    array1[i] = t
+                }
+            }
+            console.log(array1)
+        }
+        document.write(array1 + '</br>')
+
+        // 选择排序
+        var array2 = [8, 4, 5, 6, 9, 7, 1, 2, 3]
+        for (j = 0; j < array2.length - 1; j++) {
+            minindex = j
+            for (i = j + 1; i < array2.length; i++) {
+                if (array2[i] < array2[minindex]) {
+                    minindex = i
+                }
+            }
+            t = array2[j]
+            array2[j] = array2[minindex]
+            array2[minindex] = t
+            console.log(array2)
+        }
+        document.write(array2 + '</br>')
+
+        // 数组常用方法
+        /* 
+            1.数组.push(数据)：将数据追加到数组的末尾（返回值：数组的最新长度）
+            2.数组.pop()：删除数组中最后一个数据，（返回值：被删除的数据）
+            3.数组.unshift(数据)：将数据添加到数组的最前面（返回值：数组的最新）
+            4.数组.shift()：删除数组最前面一个数据（返回值：被删除的数据）
+            5.数组.reverse()：将数组反转（返回值：反转后的数组）
+            6.数组.splice(开始索引（默认值0）, 多少个（默认值0）, 要插入的数据（默认没有）)：
+                删除数组中若干数据，并选择是否插入新的数据（返回值：以新数组的形式返回被删除的数据）
+            7.数组.sort() / 数组.sort(function(a, b) {return a - b}) / 数组.sort(function(a, b) {return b - a})：
+                将数组进行排序（返回值：排序后的数组）
+            8.数组.join(连接符)：将数组用连接符连接成一个字符串（返回值：连接好的字符串）
+            9.数组.concat(其他数组)：将其他数组和数组合并到一起（返回值：合并号的数组）
+            10.数组.slice(开始索引（默认值0）, 结束索引（默认值数组长度）)：
+                截取数组中的某些数据（返回值：以新数组的形式返回截取出来的数据）
+            11.数组.indexOf(数据)：查找数据在数组中的索引位置（返回值：有该数据，返回第一次出现的索引位置；没有则返回-1）
+            12.数组.forEach(function(item, index, arr) {})：遍历数组（返回值：无）
+            13.数组.map(function(item, index, arr) {})：映射数组（返回值：映射好的数组）
+            14.数组.filter(function(item, index, arr) {})：过滤数组（返回值：过滤好的新数组）
+            15.数组.every(function(item, index, arr) {})：判断数组中每一项是否满足条件（返回值：布尔值）
+            16.数组.some(function(item, index, arr) {})：判断数组中是否有某一项满足条件（返回值：布尔值）
+        */
+
+        // 字符串常用方法
+        /*
+            1.字符串.charAt(索引)：获取对应索引的字符
+            2.字符串.toLowerCase()：将字符串全部转换为小写
+            3.字符串.toUpperCase()：将字符串全部转换为大写
+            4.字符串.replace(换下内容, 换上内容)：将第一个满足换下内容的片段替换为换上内容
+            5.字符串.trim()：去除字符串的首尾空格
+            6.字符串.split(分隔符)：按照分隔符将字符串切割成一个数组
+            7.字符串.substr(开始索引, 多少个) / 字符串.substring(开始索引, 结束索引) / 字符串.slice(开始索引, 结束索引)：
+                截取字符串
+        */
+
+        // 数值常用方法
+        /*
+            1.Math.random()：随机获取一个0-1之间的小数 [0,1
+            2.Math.round(数字)：对数字进行四舍五入的取整
+            3.Math.ceil(数字)：对数字进行向上取整 / Math.floor(数字)：对数字进行向下取整
+            4.Math.pow(底数, 指数)：对数字进行幂运算
+            5.Math.sqrt(数字)：对数字进行二次方根运算
+            6.Math.abs(数字)：对数字进行绝对值运算
+            7.Math.max(数字1, 数字2, 数字3, ...)：获取若干数字中的最大值 / min：最小值
+            8.Math.PI：属性，不用加括号：得到一个近似 π 的值
+        */
+
+        // 创建时间对象：var t = new Date()
+        // 时间获取和设置常用方法
+        /*
+            1.时间对象.getFullYear() / setFullYear(数字)：获取 / 设置年份信息
+            2.时间对象.getMonth() / setMonth(数字)：获取 / 设置月份信息
+            3.时间对象.getDate() / setDate(数字)：获取 / 设置日期信息
+            4.时间对象.getHours() / setHours(数字)：获取 / 设置小时信息
+            5.时间对象.getMinutes() / setMinutes(数字)：获取 / 设置分钟信息
+            6.时间对象.getSeconds() / setSeconds(数字)：获取 / 设置秒钟信息
+            7.时间对象.getDay()：获取星期信息
+            8.时间对象.getTime() / setTime(数字)：获取 / 设置时间戳信息
+                时间戳：当前时间节点与格林威治时间(1970-1-1 0:0:0)相差的毫秒数
+        */
+
+       var time1 = new Date(1999, 1, 30, 00, 52, 28)
+       var time2 = new Date()
+       function date(time1, time2) {
+        // 获取时间戳
+           var t1 = time1.getTime()
+           var t2 = time2.getTime()
+        // 两个时间戳相差的秒数
+           var sub = Math.ceil((t2 - t1) / 1000)
+        // 换算
+            var day = Math.floor(sub / (24*60*60))
+            var hours = Math.floor(sub % (24*60*60) / (60*60))
+            var minutes = Math.floor(sub % (60*60) / 60)
+            var seconds = sub % 60
+        // 利用对象数据类型返回多个值
+            return { day: day, hours: hours, minutes: minutes, seconds: seconds }
+       }
+       var res = date(time1, time2)
+       console.log(res)
+       document.write(res)
+    </script>
+</body>
+
+</html>

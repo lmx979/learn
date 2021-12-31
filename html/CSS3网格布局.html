@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1 {
+            width: 620px;
+            height: 460px;
+            background: darkcyan;
+
+            /* 网格布局：grid块级网格 / inline-grid行内块级网格 */
+            display: grid;
+
+            /* grid-template-rows/columns行列划分 */
+
+            /* 1.百分比 */
+            /* grid-template-rows: 25% 25% 25% 25%;
+            grid-template-columns: 33.33% 33.33% 33.34%; */
+
+            /* 2.固定值 */
+            grid-template-rows: 100px 100px 100px 100px;
+            grid-template-columns: 200px 200px 200px;
+
+            /* 3.repeat重复值(auto-fill自动填充) */
+            /* grid-template-rows: repeat(4,25%);
+            grid-template-columns: repeat(auto-fill,200px); */
+
+            /* 4.fr单位，片段填充(跟flex:1;类似) */
+            /* grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 2fr 1fr; */
+
+            /* 5.minmax最小最大值(区间：不低于最小值，不高于最大值) */
+            /* grid-template-rows: minmax(50px,200px) 100px 100px 300px;
+            grid-template-columns: minmax(100px,250px) 200px 50px; */
+
+            /* 6.auto自动填充 */
+            /* grid-template-rows: auto 100px 80px 100px;
+            grid-template-columns: 200px auto 50px; */
+
+            /* 网格布局间距gap */
+            grid-row-gap: 20px;
+            grid-column-gap: 10px;
+            /* grid-gap: 20px 10px; */
+
+            /* grid-auto-flow改变排序方式：row(默认横向) / column(竖向) */
+            grid-auto-flow: column;
+
+            /*
+                改变对齐方式(start/end/center/stretch/space-around/space-between/space-evenly)
+                1.justify-content：水平方向
+                2.align-content：竖直方向
+                3.复合写法：place-content: <justify-content> <align-content>;
+            */
+            justify-content: center;
+            align-content: center;
+            /* place-content: center center; */
+
+            /* 控制项目对齐方式 */
+            justify-items: center;
+            align-items: center;
+            /* place-items: center center; */
+
+            /* grid-template-areas区域命名 */
+            grid-template-areas:'a a c'
+                                'd e f'
+                                'g h i'
+                                'j k l';
+        }
+
+        .box1 div {
+            width: 50px;
+            height: 50px;
+            border: 2px solid darkgoldenrod;
+        }
+
+        .box1 div:nth-child(1) {
+            /* 利用区域名称进行合并grid-area */
+            grid-area: a;
+        }
+
+        .box1 div:nth-child(4) {
+            /* 项目属性：通过网格线的合并 */
+            grid-row-start: 2;
+            grid-row-end: 4;
+            /* grid-row: 2/4; */
+            grid-column: 2/4;
+        }
+
+        /* 案例 */
+        .box2 {
+            width: 1200px;
+            height: 600px;
+            border: 2px solid grey;
+            margin: 0 auto;
+            display: grid;
+            grid-template-rows: repeat(3,200px);
+            grid-template-columns: repeat(6,200px);
+            grid-template-areas:'a a a a b b'
+                                'a a a a f f'
+                                'c c d e f f';
+        }
+
+        .box2 div {
+            overflow: hidden;
+        }
+
+        .box2 img {
+            width: 100%;
+        }
+
+        .box2 div:nth-child(1) {
+            grid-area: a;
+        }
+        .box2 div:nth-child(2) {
+           grid-area: b;
+       }
+       .box2 div:nth-child(3) {
+           grid-area: c;
+       }
+       .box2 div:nth-child(4) {
+           grid-area: d;
+       }
+       .box2 div:nth-child(5) {
+           grid-area: e;
+       }
+       .box2 div:nth-child(6) {
+           grid-area: f;
+       }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <!-- <div>9</div> -->
+        <!-- <div>10</div> -->
+        <!-- <div>11</div> -->
+        <!-- <div>12</div> -->
+    </div>
+
+    <!-- 案例 -->
+    <div class="box2">
+        <div>
+            <img src="../img/bg1.jpeg" alt="">
+        </div>
+        <div>
+            <img src="../img/bg2.jpeg" alt="">
+        </div>
+        <div>
+            <img src="../img/rb4.jpg" alt="">
+        </div>
+        <div>
+            <img src="../img/暴富.jpg" alt="">
+        </div>
+        <div>
+            <img src="../img/蜡笔小新.jpg" alt="">
+        </div>
+        <div>
+            <img src="../img/rb1.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

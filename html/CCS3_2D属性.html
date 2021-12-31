@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(goldenrod 50%,indianred 50%);
+            margin: 50px auto;
+
+            /* 改变中心点的位置 */
+            transform-origin: right bottom;
+        }
+
+        .div1:hover {
+            /*
+                2D属性transform值：
+                    1.translate(x,0) / translate(-x,0)：水平向右 / 左移动
+                    2.translate(0,y) / translate(0,-y)：垂直向下 / 上移动
+                    3.translate(x,y)：对角移动
+                    4.translateX(i)：正值向右移动，负值向左移动
+                    5.translateY(i)：正值向下移动，负值向上移动
+
+                    6.scale：以中心点放大多少倍(负值为倒像放大效果)(支持X轴/Y轴单独放大)
+
+                    7.rotate(i deg)：旋转i度(正值顺时针，负值逆时针)(X轴/Y轴/Z轴：3D效果)
+            */
+            transform: translateX(200px) scale(-0.5) rotate(45deg);
+            transition: all 5s ease;
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 auto;
+            background: coral;
+
+            /* skew倾斜 */
+            transform: skewY(30deg);
+        }
+
+        /* 案例 */
+        ul {
+            list-style: none;
+            margin: 300px auto;
+            position: relative;
+        }
+
+        li {
+            width: 60px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            text-align: center;
+            transform-origin: center bottom;
+            border-radius: 50px 50px 10px 10px;
+            box-shadow: 0px 0px 10px gray;
+            transition: all 2s ease;
+        }
+
+        ul li:not(:nth-child(7)) {
+            opacity: 0;
+        }
+
+        ul:hover li {
+            opacity: 1;
+        }
+
+        li:nth-child(1),li:nth-child(5),li:nth-child(9),li:nth-child(13) {
+            background: chocolate;
+        }
+
+        li:nth-child(3),li:nth-child(7),li:nth-child(11) {
+            background: firebrick;
+        }
+
+        li:nth-child(2),li:nth-child(6),li:nth-child(10) {
+            background: tan;
+        }
+
+        li:nth-child(4),li:nth-child(8),li:nth-child(12) {
+            background: olive;
+        }
+        
+        ul:hover li:nth-child(1) {
+            transform: rotate(90deg);
+        }
+
+        ul:hover li:nth-child(13) {
+            transform: rotate(-90deg);
+        }
+
+        ul:hover li:nth-child(2) {
+            transform: rotate(75deg);
+        }
+
+        ul:hover li:nth-child(12) {
+            transform: rotate(-75deg);
+        }
+
+        ul:hover li:nth-child(3) {
+            transform: rotate(60deg);
+        }
+
+        ul:hover li:nth-child(11) {
+            transform: rotate(-60deg);
+        }
+
+        ul:hover li:nth-child(4) {
+            transform: rotate(45deg);
+        }
+
+        ul:hover li:nth-child(10) {
+            transform: rotate(-45deg);
+        }
+
+        ul:hover li:nth-child(5) {
+            transform: rotate(30deg);
+        }
+
+        ul:hover li:nth-child(9) {
+            transform: rotate(-30deg);
+        }
+
+        ul:hover li:nth-child(6) {
+            transform: rotate(15deg);
+        }
+
+        ul:hover li:nth-child(8) {
+            transform: rotate(-15deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 平移&旋转 -->
+    <div class="div1"></div>
+
+    <!-- 倾斜 -->
+    <div class="div2">Lumxx</div>
+
+    <!-- 折扇效果案例 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+    </ul>
+</body>
+
+</html>

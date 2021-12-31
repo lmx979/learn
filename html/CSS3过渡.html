@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*
+            复合属性：transition
+            单一属性：
+                transition-property：检索或设置对象中的参与过渡的属性(width background)
+                transition-duration：检索或设置过渡的持续时间(3s)
+                transition-delay：检索或设置对象延迟过渡的时间(3s)
+                transition-timing-function：检索或设置对象中过渡的动画类型(linear/ease/ease-in/ease-out/ease-in-out)
+        */
+
+        .div {
+            width: 200px;
+            height: 200px;
+            background: chartreuse;
+            
+            /*
+                过渡属性(缓慢效果)
+                all：所有属性
+                5s：动画时间
+                linear：匀速
+                3s：延迟时间
+            */
+            /* transition: width 2s,height 10s,background 2s; */
+            transition: all 5s linear 3s;
+        }
+
+        .div:hover {
+            width: 300px;
+            height: 300px;
+            background: chocolate;
+        }
+
+        .box {
+            background: yellowgreen;
+        }
+        
+        .box ul {
+            /* display: none; */
+            height: 0px;
+            overflow: hidden;
+            transition: all 2s linear;
+        }
+
+        .box:hover ul {
+            /* display: block; */
+            height: 200px;
+        }
+
+        .trans ul {
+            list-style: none;
+        }
+
+        .trans li {
+            width: 200px;
+            height: 50px;
+            border: 1px solid grey;
+        }
+
+        .trans ul:hover li:nth-child(1) {
+            width: 600px;
+            transition: all 3s linear; 
+            /* linear：匀速 */
+        }
+
+        .trans ul:hover li:nth-child(2) {
+            width: 600px;
+            transition: all 3s ease;
+            /* ease：逐渐变慢 */
+        }
+
+        .trans ul:hover li:nth-child(3) {
+            width: 600px;
+            transition: all 3s ease-in;
+            /* ease-in：加速 */
+        }
+
+        .trans ul:hover li:nth-child(4) {
+            width: 600px;
+            transition: all 3s ease-out;
+            /* ease-out：减速 */
+        }
+
+        .trans ul:hover li:nth-child(5) {
+            width: 600px;
+            transition: all 3s ease-in-out;
+            /* ease-in-out：先加速后减速 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div"></div>
+
+    <!-- display属性下不好用 -->
+    <div class="box">
+        <p>菜单</p>
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+            <li>555</li>
+            <li>666</li>
+            <li>777</li>
+            <li>888</li>
+        </ul>
+    </div>
+
+    <!-- 过渡效果 -->
+    <div class="trans">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

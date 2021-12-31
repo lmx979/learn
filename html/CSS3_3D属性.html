@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1 {
+            width: 500px;
+            height: 500px;
+            border: 1px solid darkcyan;
+            margin: 0 auto;
+            position: relative;
+
+            /* 构建3D空间(默认值flat：2D) */
+            transform-style: preserve-3d;
+
+            /* 设置景深 */
+            perspective: 800px;
+
+            /* transform: rotateY(60deg); */
+        }
+
+        .center {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: darkgoldenrod;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+
+            /* translateZ()平移：正值向屏幕前移动，负值向后面移动 */
+            /* rotateZ()旋转(与2D效果一样) */
+            /* scale3d(x,y,z)缩放：x和y表示横纵向的缩放比例，取值为0—1；z表示z轴缩放比例 */
+            transform: translateZ(300px) rotateZ(30deg) scale3d(0.2,0.3,2);
+
+            /* animation: run 5s linear infinite alternate; */
+        }
+
+        .box1:hover .center{
+            animation-play-state: paused;
+        }
+
+        @keyframes run {
+            0% {
+                transform: translateZ(0px);
+            }
+            50% {
+                transform: translateZ(200px);
+            }
+            100% {
+                transform: translateZ(500px);
+            }
+        }
+
+        .box2 {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid black;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite;
+        }
+
+        .box2 div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            font-size: 30px;
+            color: white;
+            line-height: 100px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .box2 div:nth-child(1) {
+            background: darkblue;
+            transform: translateY(-50px) rotateX(90deg);
+        }
+        .box2 div:nth-child(2) {
+            background: darkcyan;
+            transform: translateX(-50px) rotateY(-90deg);
+        }
+        .box2 div:nth-child(3) {
+            background: darkgoldenrod;
+            transform: translateZ(50px);
+        }
+        .box2 div:nth-child(4) {
+            background: darkgreen;
+            transform: translateZ(-50px);
+        }
+        .box2 div:nth-child(5) {
+            background: darkorange;
+            transform: translateX(50px) rotateY(90deg);
+        }
+        .box2 div:nth-child(6) {
+            background: darkred;
+            transform: translateY(50px) rotateX(-90deg);
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            20% {
+                transform: rotateX(60deg) rotateY(-50deg) rotateZ(60deg);
+            }
+            40% {
+                transform: rotateX(90deg) rotateY(-90deg) rotateZ(160deg);
+            }
+            60% {
+                transform: rotateX(230deg) rotateY(-230deg) rotateZ(0deg);
+            }
+            80% {
+                transform: rotateX(120deg) rotateY(-120deg) rotateZ(-60deg);
+            }
+            100% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="center"></div>
+    </div>
+
+    <!-- 立方体案例 -->
+    <div class="box2">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+
+</html>

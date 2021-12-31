@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 动画库 -->
+    <link rel="stylesheet" href="../css/animate.min.css">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body {
+            height: 100%;
+        }
+
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: darkcyan;
+            float: left;
+
+            /* 调用关键帧动画 */
+            /* 
+                动画animation复合属性值:
+                name(动画名字，调用keyframes声明的名字)
+                duration(持续时间)
+                timing-function(过渡类型：linear / ease / ease-in / ease-out / ease-in-out)
+                delay(延迟时间)
+                iteration-count(循环次数：infinite无限次 / num次数)
+                direction(方向：normal正常 / reverse反向 / alternate先正常再反向 / alternate-reverse先反向再正常)
+                play-state(动画的状态：running运动 / paused暂停)
+                fill-mode(填充模式：none默认 / forwards保持最后一个属性值 / backwards保持第一个属性值 / both向前向后填充)
+            */
+            animation: lmx 1s ease 0.5s 2 reverse both;
+        }
+
+        .div1:hover {
+            /* 单一属性 */
+            animation-play-state: paused;
+        }
+
+        /*
+            声明动画：keyframes关键帧
+        */
+        @keyframes lmx {
+            0% {
+                width: 100px;
+                height: 100px;
+                background: darkcyan;
+            }
+            100% {
+                width: 300px;
+                height: 350px;
+                background: darkgoldenrod;
+            }
+        }
+
+        .box {
+            width: 200px;
+            height: 100%;
+            background: saddlebrown;
+            position: fixed;
+            right: 0;
+            transform: translateX(100%);
+            animation: chouti 1s linear forwards;
+        }
+
+        @keyframes chouti {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 330px;
+            background: url(../img/dh1.png);
+
+            /*
+                steps()
+                end：保留当前帧，看不到最后一帧
+                start：保留下一帧，看不到第一帧
+            */
+            animation: run 1s infinite steps(1,end);
+        }
+
+        @keyframes run {
+            0% {
+                background: url(../img/dh1.png);
+            }
+            50% {
+                background: url(../img/dh2.png);
+            }
+            100% {
+                background: url(../img/dh1.png);
+            }
+        }
+
+        .div3 {
+            width: 230px;
+            height: 300px;
+            position: absolute;
+            top: 400px;
+            background-image: url(../img/dh3.png);
+            animation: dh 1s infinite step-end;
+        }
+
+        @keyframes dh {
+            0% {
+                background-position: 0px 0;
+            }
+            20% {
+                background-position: -230px 0;
+            }
+            40% {
+                background-position: -460px 0;
+            }
+            60% {
+                background-position: -690px 0;
+            }
+            80% {
+                background-position: -920px 0;
+            }
+            100% {
+                background-position: -1250px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+
+    <div class="box">
+        <h1 style="text-align: center;">抽屉效果</h1>
+    </div>
+
+    <!-- 关键帧跳跃实现逐帧动画 -->
+    <div class="div2"></div>
+    <div class="div3"></div>
+
+    <!-- 引用动画库 -->
+    <div class="animated flip infinite" style="width: 100px;height: 100px;background: darkcyan;margin: 0 auto;"></div>
+</body>
+
+</html>

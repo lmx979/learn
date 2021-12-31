@@ -9,7 +9,8 @@
 
     <style>
         div {
-            margin-top: 10px;
+            margin-right: 10px;
+            float: left;
         }
 
         .div1 {
@@ -44,10 +45,65 @@
             border: 5px solid tan;
 
             /*
-                在长方形盒子中渐变为椭圆形
-                circle：改变渐变形状为圆形
+                改变形状
+                circle：圆形
+                ellipse：椭圆
             */
-            background: radial-gradient(circle,red 10%,blue 30%,green 80%);
+            /* background: radial-gradient(circle,red 10%,blue 30%,green 80%); */
+
+            /*
+                改变中心点位置和渐变大小
+                -webkit-：前缀，谷歌内核属性
+
+                closest-side：最近边
+                farthest-side：最远边
+                closest-corner：最近角
+                farthest-corner：最远角
+            */
+            background: -webkit-radial-gradient(60% 30%,closest-corner,red,blue,green);
+        }
+
+        .div4 {
+            width: 300px;
+            height: 300px;
+            border: 2px solid lightcoral;
+            
+            /*
+                repeating：重复
+                repeating-linear-gradient重复线性渐变
+                repeating-radial-gradient重新径向渐变
+            */
+            background: repeating-radial-gradient(red,yellow 10%,green 20%);
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background: linear-gradient(white 50%,black 50%);
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .box::before {
+            width: 50px;
+            height: 50px;
+            content: "";
+            display: block;
+            /* margin: auto; */
+            background: radial-gradient(black 30%,white 30%);
+            border-radius: 50%;
+        }
+
+        .box::after {
+            width: 50px;
+            height: 50px;
+            content: "";
+            display: block;
+            /* margin: auto; */
+            background: radial-gradient(white 30%,black 30%);
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -59,6 +115,12 @@
     <!-- 径向渐变 -->
     <div class="div2"></div>
     <div class="div3"></div>
+
+    <!-- 重复渐变 -->
+    <div class="div4"></div>
+
+    <!-- 太极图案例 -->
+    <div class="box"></div>
 </body>
 
 </html>
