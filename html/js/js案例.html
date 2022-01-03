@@ -105,6 +105,11 @@
         .box1>ol>li.active {
             display: flex;
         }
+
+        table {
+            width: 300px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -197,6 +202,44 @@
                 item.className = 'active'
                 tabs[index].className = 'active'
             }
+        })
+    </script>
+
+    <!-- 动态渲染页面 -->
+    <table border="1" cellspacing='0'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- JS渲染 -->
+        </tbody>
+    </table>
+    <script>
+        var users = [
+            {id: 1, name: 'lmxx', age: 18},
+            {id: 2, name: '哈克', age: 12},
+            {id: 3, name: '埃尔', age: 34}
+        ]
+        var tbody = document.querySelector('tbody')
+        // 循环遍历users数据
+        users.forEach (function (item) {
+            // 每个对象生成一个tr标签
+            var tr = document.createElement('tr')
+            // 循环遍历item
+            for (key in item) {
+                // 生成td标签
+                var td = document.createElement('td')
+                // 设置内容
+                td.innerHTML = item[key]
+                // 把td插入到tr标签内部
+                tr.appendChild(td)
+            }
+            // 把本次的tr插入到tbody标签内容
+            tbody.appendChild(tr)
         })
     </script>
 </body>

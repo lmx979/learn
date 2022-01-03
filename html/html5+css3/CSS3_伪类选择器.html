@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 920px;
+            height: 100px;
+            background: yellowgreen;
+        }
+
+        .box div {
+            width: 300px;
+            height: 100px;
+            background: red;
+            margin-right: 10px;
+            float: left;
+        }
+
+        /*
+            ':'：伪类选择器
+            first-child：第一个子元素
+            last-child：最后一个子元素
+        */
+        .box div:last-child {
+            margin-right: 0px;
+        }
+
+        /* nth-child：第几个子元素 */
+        ul li:nth-child(2) {
+            color: green;
+        }
+
+        /* 偶数/奇数个子元素：2n(even) / 2n+1(odd) */
+        ol li:nth-child(2n+1) {
+            background: grey;
+        }
+
+        ol li:nth-child(even) {
+            background: red;
+        }
+
+        /* 只有一个子元素选择器 */
+        ul li:only-child {
+            font-size: 20px;
+            color: pink;
+        }
+
+        /* 空元素(没有子元素)选择器  注意空格换行 */
+        div:empty {
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+
+        /* 根节点选择器(html) */
+        :root,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* :target：目标伪类选择器 */
+        .div1 p {
+            display: none;
+        }
+
+        .div1 p:target {
+            display: block;
+            border: 1px solid pink;
+        }
+
+        .div1 a {
+            text-decoration: none;
+            color: pink;
+            font-size: 20px;
+        }
+
+
+        /* 
+            状态伪类选择器
+            1.enabled：可用状态
+            2.disabled：禁用状态
+            3.checked：选中状态
+            4.focus：焦点状态
+        */
+        input:enabled {
+            background: #ccc;
+        }
+
+        input:disabled {
+            background: orange;
+        }
+
+        input:focus {
+            background: white;
+        }
+
+        input[type=checkbox] {
+            /* appearance：去掉选择框的默认样式 */
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border: 1px solid black;
+        }
+
+        input:checked {
+            background: brown;
+        }
+
+        /* selection：元素被用户选中或处于高亮状态 */
+        .div2 p::selection {
+            background: brown;
+            color: white;
+        }
+
+
+        /* not()：否定伪类选择器 */
+        .div3 li:not(:first-child) {
+            color: yellowgreen;
+        }
+
+
+        /*
+            动态伪类选择器
+            1.link：链接未被访问过
+            2.visited：链接已被访问过
+            3.active：元素被激活，常用语链接锚点和按钮
+            4.hover：鼠标停留在元素上
+        */
+    </style>
+</head>
+
+<body>
+    <!-- 1.结构性伪类选择器 -->
+    <div class="box">
+        <div> </div>
+        <div> </div>
+        <div> </div>
+    </div>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ol>
+    <ul>
+        <li>456</li>
+    </ul>
+    <div></div>
+
+    <!-- 2.目标伪类选择器(锚点) -->
+    <div class="div1">
+        <!-- 手风琴效果/折叠样式 -->
+        <div>
+            <a href="#p1">111</a>
+            <p id="p1">aaaLorem ipsum dolor sit amet consectetur adipisicing elit. Ullam odit ducimus itaque et! Sed
+                ipsam quaerat natus nam, dignissimos recusandae eius iste sequi voluptate voluptatum adipisci, qui,
+                neque optio sint.</p>
+        </div>
+        <div>
+            <a href="#p2">222</a>
+            <p id="p2">bbbLorem ipsum dolor sit amet consectetur adipisicing elit. Ullam odit ducimus itaque et! Sed
+                ipsam quaerat natus nam, dignissimos recusandae eius iste sequi voluptate voluptatum adipisci, qui,
+                neque optio sint.</p>
+        </div>
+        <div>
+            <a href="#p3">333</a>
+            <p id="p3">cccLorem ipsum dolor sit amet consectetur adipisicing elit. Ullam odit ducimus itaque et! Sed
+                ipsam quaerat natus nam, dignissimos recusandae eius iste sequi voluptate voluptatum adipisci, qui,
+                neque optio sint.</p>
+        </div>
+    </div>
+
+    <!-- 3.UI元素状态伪类选择器(表单) -->
+    <div class="div2">
+        <form action="">
+            用户名：<input type="text" name="" id=""><br>
+            密码：<input type="password" name="" id=""><br>
+            记住密码:<input type="checkbox" name="" value=""><br>
+            <input type="submit" name="" value="提交" disabled>
+        </form>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit modi voluptate quos assumenda quae eveniet
+            excepturi soluta provident pariatur nobis, quibusdam optio maiores sequi vel laborum! Nam praesentium rem
+            possimus.</p>
+    </div>
+
+    <!-- 4.否定伪类选择器 -->
+    <div class="div3">
+        <ul>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+    </div>
+
+    <!-- 5.动态伪类选择器(链接) -->
+    <div class="div4">
+        <a href="">lmxx</a>
+    </div>
+</body>
+
+</html>
