@@ -144,25 +144,121 @@
                 时间戳：当前时间节点与格林威治时间(1970-1-1 0:0:0)相差的毫秒数
         */
 
-       var time1 = new Date(1999, 1, 30, 00, 52, 28)
-       var time2 = new Date()
-       function date(time1, time2) {
-        // 获取时间戳
-           var t1 = time1.getTime()
-           var t2 = time2.getTime()
-        // 两个时间戳相差的秒数
-           var sub = Math.ceil((t2 - t1) / 1000)
-        // 换算
-            var day = Math.floor(sub / (24*60*60))
-            var hours = Math.floor(sub % (24*60*60) / (60*60))
-            var minutes = Math.floor(sub % (60*60) / 60)
+        var time1 = new Date(1999, 1, 30, 00, 52, 28)
+        var time2 = new Date()
+        function date(time1, time2) {
+            // 获取时间戳
+            var t1 = time1.getTime()
+            var t2 = time2.getTime()
+            // 两个时间戳相差的秒数
+            var sub = Math.ceil((t2 - t1) / 1000)
+            // 换算
+            var day = Math.floor(sub / (24 * 60 * 60))
+            var hours = Math.floor(sub % (24 * 60 * 60) / (60 * 60))
+            var minutes = Math.floor(sub % (60 * 60) / 60)
             var seconds = sub % 60
-        // 利用对象数据类型返回多个值
+            // 利用对象数据类型返回多个值
             return { day: day, hours: hours, minutes: minutes, seconds: seconds }
-       }
-       var res = date(time1, time2)
-       console.log(res)
-       document.write(res)
+        }
+        var res = date(time1, time2)
+        document.write(res)
+
+        //  BOM(Browser Object Model)：一整套操作 浏览器 相关内容的属性和方法
+        /*
+            1.获取浏览器窗口尺寸
+                获取可视窗口宽度：window.innerWidth
+                获取可视窗口高度：window.innerHeight
+            2.浏览器的弹出层
+                提示框：window.alert('提示信息')
+                询问框：window.confirm('提示信息')
+                输入框：window.prompt('提示信息')
+            3.开启和关闭标签页
+                开启：window.open('地址')
+                关闭：window.close()
+            4.浏览器常见事件
+                资源加载完毕：window.onload = function() {}
+                可视尺寸改变：window.onresize = function() {}
+                滚动条位置改变：window.onscroll = function() {}
+            5.浏览器的历史记录操作
+                回退页面：window.history.back()
+                前进页面：window.history.forward()
+            6.浏览器卷去的尺寸
+                卷去的高度：document.documentElement.scrollTop / document.body.scrollTop
+                卷去的宽度：document.documentElement.scrollLeft / document.body.scrollLeft
+            7.浏览器滚动到(设置滚动条的位置)
+                参数方式一：window.scrollTo(left, top)
+                参数方式二：window.scrollTo({
+                    left: xx,
+                    top: yy,
+                    behavior: 'smooth'
+                })
+        */
+
+        /*
+            间隔定时器：按照指定周期（毫秒）去执行指定的代码
+                setInterval(function () {
+                    要执行的代码
+                }, 时间)
+            延时定时器：在固定时间（毫秒）后执行一次代码
+                setTimeout(function () {
+                    时间到达后要执行的代码
+                }, 时间)
+
+            返回值：当面页面的第几个定时器(不区分定时器种类)
+
+            关闭（不区分种类）：clearInterval(要关闭的定时器返回值) / clearTimeout(要关闭的定时器返回值)
+        */
+
+        // DOM(Document Object Model)：一整套操作 文档流 相关的属性和方法
+        /*
+            获取元素的方式
+                1.根据id名：document.getElementById('id名')
+                2.根据类名：document.getElementsByClassName('元素类名')
+                3.根据标签名：document.getElementsByTagName('标签名')
+                4.根据选择器：
+                    document.querySelector('选择器')：获取满足选择器规则的第一个元素
+                    document.querySelectorAll('选择器')：获取满足选择器规则的所有元素
+            
+            操作元素内容
+                1.操作元素文本内容：
+                    获取：元素.innerText
+                    设置：元素.innerText = '新内容'
+                2.操作元素超文本内容：
+                    获取：元素.innerHTML
+                    设置：元素.innerHTML = '新内容'
+
+            操作元素属性
+                1.原生属性
+                    获取：元素.属性名
+                    设置：元素.属性名 = '属性值'
+                2.自定义属性
+                    获取：元素.getAttribute('属性名')
+                    设置：元素.setAttribute('属性名', '属性值')
+                    删除：元素.removeAttribute('属性名')
+            
+            操作元素类名
+                获取：元素.className
+                设置：元素.className = '新类名'
+
+            操作元素行内样式
+                获取：元素.style.样式名 ( 获取元素非行内样式：window.getComputedStyle(元素).样式名 )
+                设置：元素.style.样式名 = '样式值'
+        */
+
+        /*
+            节点操作
+                1.创建节点：document.createElement('标签名')
+                2.插入节点：父节点.appendChild(子节点) / 父节点.insertBefore(要插入的子节点, 哪一个子节点的前面)
+                3.删除节点：父节点.removeChild(子节点) / 节点.remove()
+                4.替换节点：父节点.replaceChild(换上节点, 换下节点)
+                5.克隆节点：节点.cloneNode(是否克隆后代节点)
+        */
+
+        /*
+            获取元素尺寸（加不加border的区别）
+                高度：元素.offsetHeight / 元素.clientHeight
+                宽度：元素.offsetWidth / 元素.clientWidth
+        */
     </script>
 </body>
 

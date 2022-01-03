@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        div {
+            float: left;
+        }
+
+        .gotop {
+            width: 50px;
+            height: 50px;
+            background: darkcyan;
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            line-height: 25px;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            display: none;
+        }
+
+        .selectAll {
+            width: 100px;
+            padding: 20px;
+            border: 1px solid pink;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        hr {
+            margin: 10px 0;
+        }
+
+        .box1 {
+            width: 600px;
+            height: 350px;
+            border: 2px solid pink;
+            display: flex;
+            margin: 20px;
+            flex-direction: column;
+        }
+
+        .box1 ul {
+            height: 50px;
+            list-style: none;
+            display: flex;
+        }
+
+        .box1>ul>li {
+            flex: 1;
+            color: white;
+            background: skyblue;
+            font-size: 20px;
+            line-height: 60px;
+            text-align: center;
+            /*
+                cursor光标类型属性：
+                    auto / crosshair / default / pointer / Move / e-resize / ne-resize / nw-resize
+                    n-resize / se-resize / sw-resize / s-resize / w-resize / text / wait / help
+            */
+            cursor: pointer;
+        }
+
+        .box1>ul>li.active {
+            background: orange;
+        }
+
+        .box1 ol {
+            list-style: none;
+            flex: 1;
+            position: relative;
+        }
+
+        .box1>ol>li {
+            width: 100%;
+            height: 100%;
+            background: blueviolet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 80px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .box1>ol>li.active {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 回到顶部 -->
+    <div class="gotop">回到顶部</div>
+    <script>
+        var btn = document.querySelector('.gotop')
+        // 浏览器滚动事件
+        window.onscroll = function () {
+            // 获取滚去的高度
+            var height = document.documentElement.scrollTop || document.body.scrollTop
+            if (height >= 300) {
+                btn.style.display = 'block'
+            } else {
+                btn.style.display = 'none'
+            }
+        }
+        btn.onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }
+    </script>
+
+    <!-- 全选 -->
+    <div class="selectAll">
+        全选：<input type="checkbox">
+        <hr>
+        <input type="checkbox"> 选项一<br>
+        <input type="checkbox"> 选项二<br>
+        <input type="checkbox"> 选项三<br>
+        <input type="checkbox"> 选项四<br>
+    </div>
+    <script>
+        var selectAll = document.querySelector('input')
+        var items = document.querySelectorAll('input:nth-child(n + 2)')
+        selectAll.onclick = function () {
+            // 获取全选按钮的选中状态
+            var type = selectAll.checked
+            // 利用循环将全选按钮的选中状态设置给每一个选项按钮
+            for (i = 0; i < items.length; i++) {
+                items[i].checked = type
+            }
+        }
+        // 循环给每一个选项按钮绑定点击事件
+        for (i = 0; i < items.length; i++) {
+            items[i].onclick = function () {
+                // 定义假设变量，假设所有按钮都是选中状态
+                var flag = true
+                // 通过循环验证假设
+                for (j = 0; j < items.length; j++) {
+                    if (items[j].checked == false) {
+                        flag = false
+                        break
+                    }
+                }
+                // 把得到的结果赋值给全选按钮
+                selectAll.checked = flag
+            }
+        }
+    </script>
+
+    <!-- 选项卡(tab切换) -->
+    <div class="box1">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol>
+            <li class="active">111</li>
+            <li>222</li>
+            <li>333</li>
+        </ol>
+    </div>
+    <script>
+        var btns = document.querySelectorAll('ul>li')
+        var tabs = document.querySelectorAll('ol>li')
+        // 循环给btns的所有按钮添加点击事件
+        btns.forEach(function (item, index) {
+            item.onclick = function () {
+                // 给btns和tabs的所有内容去除active类
+                btns.forEach(function (t, i) {
+                    t.className = ''
+                    tabs[i].className = ''
+                })
+                // 当前点击按钮和索引对应的盒子添加active类
+                item.className = 'active'
+                tabs[index].className = 'active'
+            }
+        })
+    </script>
+</body>
+
+</html>
