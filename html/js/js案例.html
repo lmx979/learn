@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="../../font/iconfont.css">
+
     <style>
         * {
             margin: 0;
             padding: 0;
         }
 
-        body {
-            height: 2000px;
-        }
-
-        div {
-            float: left;
+        ul,
+        ol,
+        li {
+            list-style: none;
         }
 
         .gotop {
@@ -58,7 +58,6 @@
 
         .box1 ul {
             height: 50px;
-            list-style: none;
             display: flex;
         }
 
@@ -82,7 +81,6 @@
         }
 
         .box1 ol {
-            list-style: none;
             flex: 1;
             position: relative;
         }
@@ -108,7 +106,157 @@
 
         table {
             width: 300px;
+            margin: 20px;
             text-align: center;
+        }
+
+        .img {
+            width: 30px;
+            height: 30px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .imgBox img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .banner {
+            width: 1000px;
+            height: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .banner>ul {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .banner>ul>li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all 1s linear;
+        }
+
+        .banner>ul>li.active {
+            opacity: 1;
+        }
+
+        .banner>ol {
+            width: 150px;
+            height: 30px;
+            position: absolute;
+            bottom: 30px;
+            left: calc(50% - 75px);
+            background: grey;
+            opacity: 0.8;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-radius: 15px;
+        }
+
+        .banner>ol>li {
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .banner>ol>li.active {
+            background: chocolate;
+        }
+
+        .banner>i {
+            width: 50px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            color: grey;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner>i.leftbtn {
+            left: 0;
+        }
+
+        .banner>i.rightbtn {
+            right: 0;
+        }
+
+        .banner>i:hover {
+            background: grey;
+            color: white;
+            opacity: 0.7;
+        }
+
+        .box2 {
+            width: 500px;
+            height: 350px;
+            border: 10px solid #333;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box2>ul {
+            height: 50px;
+            display: flex;
+        }
+
+        .box2>ul>li {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            background: cornflowerblue;
+            cursor: pointer;
+        }
+
+        .box2>ul>li.active {
+            background: darkblue;
+            color: white;
+        }
+
+        .box2>ol {
+            flex: 1;
+            position: relative;
+        }
+
+        .box2>ol>li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: wheat;
+            font-size: 80px;
+            text-align: center;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box2>ol>li.active {
+            background: yellowgreen;
+            color: white;
+            display: flex;
         }
     </style>
 </head>
@@ -220,13 +368,13 @@
     </table>
     <script>
         var users = [
-            {id: 1, name: 'lmxx', age: 18},
-            {id: 2, name: '哈克', age: 12},
-            {id: 3, name: '埃尔', age: 34}
+            { id: 1, name: 'lmxx', age: 18 },
+            { id: 2, name: '哈克', age: 12 },
+            { id: 3, name: '埃尔', age: 34 }
         ]
         var tbody = document.querySelector('tbody')
         // 循环遍历users数据
-        users.forEach (function (item) {
+        users.forEach(function (item) {
             // 每个对象生成一个tr标签
             var tr = document.createElement('tr')
             // 循环遍历item
@@ -241,6 +389,136 @@
             // 把本次的tr插入到tbody标签内容
             tbody.appendChild(tr)
         })
+    </script>
+
+    <!--
+        事件对象内的信息
+        鼠标事件：
+            1.offsetX / offsetY：相对于触发事件的元素
+            2.clientX / clientY：相对于浏览器可视窗口
+            3.pageX / pageY：相对于页面文档流
+        键盘事件：键盘编码  事件对象.keyCode
+    -->
+    <!-- 光标跟随 -->
+    <img class="img" src="../../img/皮卡丘光标.png" alt="">
+    <script>
+        var img = document.querySelector('img')
+        // 给document绑定一个鼠标移动事件
+        document.onmousemove = function (e) {
+            // 获取光标相对于窗口的坐标定位
+            var x = e.clientX
+            var y = e.clientY
+            // 把获取的x和y赋值给img标签的left和top样式
+            img.style.left = x + 15 + 'px'
+            img.style.top = y + 15 + 'px'
+        }
+    </script>
+
+    <!-- 轮播图 -->
+    <div class="banner">
+        <!-- 图片区域 -->
+        <ul class="imgBox">
+            <li class="active"><img src="../../img/bg1.jpeg" alt=""></li>
+            <li><img src="../../img/bg2.jpeg" alt=""></li>
+            <li><img src="../../img/bg1.jpeg" alt=""></li>
+            <li><img src="../../img/bg2.jpeg" alt=""></li>
+        </ul>
+        <!-- 焦点区域 -->
+        <ol>
+            <li data-i="0" data-name="point" class="active"></li>
+            <li data-i="1" data-name="point"></li>
+            <li data-i="2" data-name="point"></li>
+            <li data-i="3" data-name="point"></li>
+        </ol>
+        <!-- 左右切换按钮 -->
+        <i id="left" class="iconfont icon-arrow-double-left"></i>
+        <i id="right" class="rightbtn iconfont icon-arrow-double-right"></i>
+    </div>
+    <script>
+        var imgs = document.querySelectorAll('.banner>ul>li')
+        var points = document.querySelectorAll('.banner>ol>li')
+        var banner = document.querySelector('.banner')
+        // 定义一个变量index表示当前是第几张图片，默认为索引第0张
+        var index = 0
+        function changeImg(type) {
+            // 约定 参数type的值：true 切换下一张 / false 切换上一张 / 数字 切换到指定索引图片
+            imgs[index].className = ''
+            points[index].className = ''
+            // 根据type传递来的参数值来切换index的值
+            if (type === true) {
+                index++
+            } else if (type === false) {
+                index--
+            } else {
+                index = type
+            }
+            // 判定index的边界值
+            if (index >= imgs.length) {
+                index = 0
+            }
+            if (index < 0) {
+                index = imgs.length - 1
+            }
+            // 让改变后的图片显示出来
+            imgs[index].className = 'active'
+            points[index].className = 'active'
+        }
+        // 给轮播图区域盒子绑定点击事件
+        banner.onclick = function (e) {
+            // 判断点击的对象
+            if (e.target.id == 'left') {
+                changeImg(false)
+            }
+            if (e.target.id == 'right') {
+                changeImg(true)
+            }
+            if (e.target.dataset.name === 'point') {
+                i = e.target.dataset.i
+                changeImg(i)
+            }
+        }
+        // 自动切换功能
+        setInterval (function () {
+            changeImg(true)
+        }, 5000)
+    </script>
+
+    <!-- 面向对象选项卡 -->
+    <div class="box2">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol>
+            <li class="active">111</li>
+            <li>222</li>
+            <li>333</li>
+        </ol>
+    </div>
+    <script>
+        function Box2 (ele) {
+            this.ele = document.querySelector(ele)
+            this.btns = this.ele.querySelectorAll('ul>li')
+            this.tabs = this.ele.querySelectorAll('ol>li')
+        }
+        Box2.prototype.change = function () {
+            var _this = this
+            for (i = 0; i < this.btns.length; i++) {
+                this.btns[i].setAttribute('index', i)
+                this.btns[i].addEventListener('click', function () {
+                    for (j = 0; j < _this.btns.length; j++) {
+                        _this.btns[j].className = ''
+                        _this.tabs[j].className = ''
+                    }
+                    this.className = 'active'
+                    index = this.getAttribute('index')
+                    _this.tabs[index].className = 'active'
+                })
+            }
+        }
+        var t1 = new Box2('.box2')
+        t1.change()
     </script>
 </body>
 
