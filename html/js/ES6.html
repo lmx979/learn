@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ES6：全称 ECMAScript 6.0，是 JavaScript 的下一个版本标准，2015.06 发版 -->
+
+    <!--
+        定义变量：
+            以前：var
+            新增：let => 定义变量 / const => 定义常量（特殊的变量）
+        区别：
+            1.var会进行预解析，let和const不会（在变量声明之前使用会报错）
+            2.var可以声明两个重名的变量，let和const不能（变量名不能重复）
+            3.var没有块级作用域，let和const有（在块级作用域之外不能使用）
+                块级作用域：任何一个可以执行代码段的 {}
+        let和const的区别：
+            1.let可以在定义变量时不进行赋值，const必须赋值
+            2.let定义的变量可以被修改，const一经赋值不能修改
+    -->
+
+    <!--
+        箭头函数：是在ES6语法中对函数表达式的简写
+            例：函数表达式 btn.onclick = function () {}
+                箭头函数  btn.onclick = () => {}
+        特殊之处：
+            1.当只有一个形参时，可以省略()
+            2.当代码只有一条时，可以省略{}，并自动把这条代码的结果当做函数的返回值
+            3.箭头函数内没有arguments（arguments是一个对应于传递给函数的参数的类数组对象）
+            4.箭头函数内没有this，箭头函数内的this就是外部作用域的this
+    -->
+
+    <!--
+        函数参数默认值：
+            函数在定义时，可以直接给形参设置一个默认值 function fn(a = 100)
+            当没有传递实参时，就使用默认值
+            当传递了实参，就使用实参值
+            普通函数和箭头函数都可以使用
+    -->
+</body>
+
+</html>
