@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Ajax(前后端交互方式)：并不是编程语言，是一种从网页访问 Web 服务器的技术，代表异步 JavaScript 和 XML
+        步骤：
+            1.创建ajax对象：var xhr = new XMLHttpRequest()
+            2.配置本次请求信息：xhr.open(请求方式, 请求地址, 是否异步)  （接口文档）
+            3.注册请求完成事件：xhr.onload = function () {}
+            4.把请求发送出去：xhr.send()
+
+        拿到后端返回的信息：xhr.responseText
+        当后端返回的是json格式字符串时，需要进行单独解析
+            语法：JSON.parse(json格式字符串)
+            返回值：解析好的js格式的数据
+
+        请求方式：GET / POST
+        区别：
+            1.get偏向获取的语义化 / post偏向提交的语义化
+            2.get参数是查询字符串 / post参数格式多样，但需要特殊说明
+            3.get大小有限制 2KB左右 / post理论上没有限制
+            4.get参数位置在请求地址后面 / post参数位置在请求体内
+                get方式携带参数：参数与地址之间用 ? 连接，多个参数之间用 & 分隔
+                post方式携带参数：
+                    1.需要特殊说明 语法：xhr.setRequestHeader('content-type', 传递的参数格式)
+                    2.在send()里书写要传递的参数
+    -->
+</body>
+
+</html>

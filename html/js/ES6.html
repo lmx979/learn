@@ -11,8 +11,7 @@
 <body>
     <!-- ES6：全称 ECMAScript 6.0，是 JavaScript 的下一个版本标准，2015.06 发版 -->
 
-    <!--
-        定义变量：
+    <!--定义变量：
             以前：var
             新增：let => 定义变量 / const => 定义常量（特殊的变量）
         区别：
@@ -25,8 +24,7 @@
             2.let定义的变量可以被修改，const一经赋值不能修改
     -->
 
-    <!--
-        箭头函数：是在ES6语法中对函数表达式的简写
+    <!--箭头函数：是在ES6语法中对函数表达式的简写
             例：函数表达式 btn.onclick = function () {}
                 箭头函数  btn.onclick = () => {}
         特殊之处：
@@ -36,12 +34,58 @@
             4.箭头函数内没有this，箭头函数内的this就是外部作用域的this
     -->
 
-    <!--
-        函数参数默认值：
+    <!--函数参数默认值：
             函数在定义时，可以直接给形参设置一个默认值 function fn(a = 100)
             当没有传递实参时，就使用默认值
             当传递了实参，就使用实参值
             普通函数和箭头函数都可以使用
+    -->
+
+    <!--解构赋值：快速从对象或数组中获取成员
+            1.数组的解构赋值：
+                let arr = ['hello', 'world']
+                以前：let a = arr[0]; let b = arr[1]
+                现在：let [a, b] =arr
+            2.对象的解构赋值：
+                let obj = {name: 'lmxx', age: 18}
+                以前：let name = obj.name; let age = obj.age
+                现在：let {name, age: a} = obj
+                    age:a：相当于定义了一个变量名为a（别名），将obj.age的值赋值给a  ==> let a = obj.age
+    -->
+
+    <!--模板字符串：ES6内新增的定义字符串的方式
+            以前：单引号和双引号
+            新增：反引号 `内容` (英文输入法下 tab 上面的键)
+        区别：
+            1.可以换行书写，且输出时保留换行
+            2.可以直接在字符串内解析变量，书写 ${ 变量 }
+                例：var age = 18; var str = `我今年 ${age} 岁`
+    -->
+
+    <!--展开运算符( ... )：展开数组的 []， 或者展开对象的 {}
+            作用1.合并数组
+                例：arr1 = [10,20]; arr2 = [30,40]; arr3 = [...arr1, ...arr2] ==> arr = [10,20,30,40]
+            作用2.给函数传递参数
+                例：arr = [2,5,9,8,6,3]; max = Math.max(...arr)
+            作用3.复制对象
+                例：obj1 = {name:'lmxx', age:18}; obj2 = {...obj1, sex = '女'}
+    -->
+
+    <!--类语法（就是用ES6的语法书写构造函数）
+            class 类名 {
+                // 按原先ES5内的构造函数体书写
+                constructor (name, age) {
+                    this.name = name
+                    this.age = age
+                }
+                // 直接书写原型上的方法
+                sayHi () { console.log('hello') }
+                // 书写静态属性和方法，需要加上一个 static 关键字
+                static a = 100
+                static go () { console.log('hello') }
+            }
+            //必须和new连用，否则报错
+            var p = new 类名
     -->
 </body>
 
