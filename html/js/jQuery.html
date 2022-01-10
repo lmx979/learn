@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- jQuery：一个 大型的 简单的 第三方类库。jQuery类库是对DOM操作进行封装的类库 -->
+
+    <!-- 引入jquery文件 -->
+    <script src="../../jquery/jquery-3.6.0.js"></script>
+
+    <!--
+        1-jquery选择器
+            语法：$('选择器')
+
+        2-jquery筛选器
+            语法：$('选择器').筛选器名称()
+            常用筛选器：
+                first() / last() / eq(索引)
+                next() / nextAll()
+                prev() / prevAll()
+                parent() / parents()
+                siblings()：选择器的所有兄弟节点
+                find(选择器)：找到该元素所有的 后代节点 中满足选择器要求的元素
+
+        3-jquery操作文本内容
+           1. html() ==> js中的innerHTML
+                获取：元素.html() => 获取的是元素内的html结构内容
+                // jquery可以识别并解析html结构的字符串
+                设置：元素.html('<p>新内容</p>')
+            2.text() ==> js中的innerText
+                获取：元素.text() => 获取的是元素内的文本内容
+                // 不可以识别html结构字符串
+                设置：元素.text('新内容')
+            3.val() ==> js中的value ： 主要用于操作表单元素
+                获取：元素.val()
+                设置：元素.val('要设置的内容')
+
+        4-jquery操作类名
+            1.addClass('要添加的类名')：给元素添加一个类
+            2.removeClass('要删除的类名')：删除元素的一个类
+            3.toggleClass('要切换的类名')：如果本身有这个类名则删除；没有则添加
+
+        5-jquery操作样式：css()
+            元素.css(要获取的样式名)：可以获取行内样式，也可以获取非行内样式。返回值：样式值
+            元素.css(样式名, 样式值)：给元素设置一个样式（值得单位为px时可省略）
+            元素.css( { 用对象传递要设置的所有样式 } )：批量设置样式
+
+        6-jquery操作属性
+            1.attr()：获取和设置元素的属性
+                一般用于操作元素的自定义属性
+                attr操作的所有属性会直接出现在元素的标签上
+            2.removeAttr()：删除元素的属性
+            3.prop()：获取和设置元素的属性
+                不能获取元素标签上的自定义属性，只能获取到prop方法自己设置的自定义属性
+                设置原生属性时会直接响应在元素标签上；设置自定义属性时会响应在元素的对象上
+            4.removeProp()：删除元素的属性
+                不能删除原生属性，只能删除prop方法设置的自定义的属性
+
+        7-jquery获取元素尺寸
+            1.width() / height()：获取元素内容区域的尺寸
+            2.innerWidth() / innerHeight()：获取内容+padding区域
+            3.outerWidth() / outerHeight()：获取内容+padding+border区域（括号里写true，会获取到 +margin的区域）
+
+        8-jquery获取元素偏移量
+            1.offset()：获取元素相对于页面左上角的坐标位置。返回值：对象数据类型 { top: yyy, left: xxx }
+            2.position()：获取元素的定位位置（如果设置的是right和bottom，会自动换算成top和left）
+
+        9-jquery事件绑定
+            1.on()方法绑定事件
+                基础绑定事件：元素.on('事件类型', 事件处理函数) => $('div').on('click', function(){})
+                事件委托绑定事件：元素.on('事件类型', 选择器, 事件处理函数)
+                批量绑定事件：元素.on({事件类型1: 处理函数, 事件类型2: 处理函数})
+            2.one()方法绑定事件
+                绑定方式与on方法相同，区别是：one方法绑定的事件只能执行一次
+            3.hover()：是jquery里一个特殊的事件
+                语法：元素.hover(移入时触发的函数, 移出时触发的函数) （当只传递一个函数时，移入移出都触发）
+            4.常用事件函数
+                click() / mouseover() / mouseout() / change() ...
+
+        10-jquery事件的解绑和触发
+            1.off()事件解绑
+                解绑全部的事件处理函数：元素.off(事件类型)
+                解绑指定的事件处理函数：元素.off(事件类型, 要解绑的事件处理函数)
+            2.trigger()事件触发
+                使用代码的方式来触发事件。语法：元素.trigger(事件类型)
+
+        11-jquery基本动画函数（向左上角缩放）
+            1.show(运动时间, 运动方式, 运动结束后的回调函数)：显示
+            2.hide(运动时间, 运动方式, 运动结束后的回调函数)：隐藏
+            3.toggle(运动时间, 运动方式, 运动结束后的回调函数)：切换
+
+        12-jquery折叠动画函数（上下缩放）
+            1.slideDown(运动时间, 运动方式, 运动结束后的回调函数)：显示
+            2.slideUp(运动时间, 运动方式, 运动结束后的回调函数)：隐藏
+            3.slideToggle(运动时间, 运动方式, 运动结束后的回调函数)：切换
+
+        13-jquery渐隐渐显动画函数
+            1.fadeIn(运动时间, 运动方式, 运动结束后的回调函数)：显示
+            2.fadeOut(运动时间, 运动方式, 运动结束后的回调函数)：隐藏
+            3.fadeToggle(运动时间, 运动方式, 运动结束后的回调函数)：切换
+            4.fadeTo(运动时间, 指定的透明度, 运动曲线, 运动结束后的回调函数)：运动到指定透明度显示
+
+        14-jquery综合动画：animate(动画样式(以对象数据类型传递), 运动时间, 运动曲线, 运动结束后的回调函数)
+
+        15-jquery结束动画函数
+            1.stop()：任何一个元素执行stop方法后会立即结束当前的所有运动，停在当前位置
+            2.finish()：任何一个元素执行finish方法后会立即结束当前的所有运动，直接去到动画的结束位置
+
+        16-jquery的ajax请求：$.ajax( { 本次发送ajax的配置项 } )
+            因为发送ajax请求不是DOM操作，所以不需要依赖选择器去获取元素，是直接依赖jquery或 $ 变量来使用
+            配置项：
+                1.url：请求地址，必填
+                2.method：请求方式，默认为get，选填
+                3.data：携带给后端的参数，默认为''，选填
+                4.async：是否异步，默认true，选填
+                5.success：请求成功的回调函数，选填
+                6.error：请求失败的回调函数，选填
+    -->
+
+    <!-- 1&2 -->
+    <ul>
+        <li>1</li>
+        <li class="a">2</li>
+        <span>3</span>
+        <li>4</li>
+        <li id="b">5</li>
+    </ul>
+    <script>
+        console.log($('li'))
+        console.log($('.a'))
+        console.log($('#b'))
+        console.log($('li:nth-child(even)'))
+        console.log($('span').siblings())
+    </script>
+
+    <!-- 11&12&13 -->
+    <div>
+        <button>show</button>
+        <button>slideUp</button>
+        <button>fadeToggle</button>
+        <button>fadeTo</button>
+        <div class="box"></div>
+    </div>
+    <script>
+        $('button:nth-child(1)').click(function () {
+            $('.box').show(1000)
+        })
+        $('button:nth-child(2)').click(function () {
+            $('.box').slideUp(1000, 'linear', function () {
+                alert('隐藏')
+            })
+        })
+        $('button:nth-child(3)').click(function () {
+            $('.box').fadeToggle(1000)
+        })
+        $('button:nth-child(4)').click(function () {
+            $('.box').fadeTo(1000, 0.6, 'linear', function () {
+                alert('运动到指定的透明度')
+            })
+        })
+    </script>
+</body>
+
+</html>

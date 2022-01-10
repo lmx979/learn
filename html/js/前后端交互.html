@@ -6,6 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 300px;
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            padding-top: 50px;
+            position: relative;
+        }
+
+        form>span {
+            color: red;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+        }
+
+        form>lable {
+            height: 50px;
+        }
+
+        form>label>input {
+            width: 150px;
+            font-size: 18px;
+            height: 25px;
+            padding-left: 20px;
+            position: absolute;
+            right: 5%;
+        }
+
+        form>button {
+            height: 30px;
+            width: 200px;
+            margin: 10px auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,6 +75,56 @@
                     1.需要特殊说明 语法：xhr.setRequestHeader('content-type', 传递的参数格式)
                     2.在send()里书写要传递的参数
     -->
+
+    <!-- 登录案例 -->
+    <form>
+        <span class="error">用户名或密码输入错误</span>
+        <label>
+            用户名：<input type="text" class="user">
+        </label>
+        <label>
+            密码：<input type="password" class="pwd">
+        </label>
+        <button>登录</button>
+    </form>
+    <script>
+        /*
+            分析需求：
+                1.什么时候进行发送请求 => 点击登录按钮时 => 需要给form表单绑定一个表单提交事件
+                2.需要拿到哪些信息 => 用户填写的用户名和密码
+                3.需要如何发送给后端 => 按照接口文档的规范进行发送
+                4.请求完成后需要做什么 => 根据后端返回的信息，进行相应的操作 => 登录成功则跳转页面；失败则提示信息
+        */
+        // 获取元素
+        var loginform = document.querySelector('form')
+        var nameInp = document.querySelector('.user')
+        var pwdInp = document.querySelector('.pwd')
+        var tips = document.querySelector('.error')
+        // 绑定表单提交事件
+        loginform.onsubmit = function (e) {
+            // 阻止表单的默认提交行为
+            e.preventDefault()
+            // 拿到用户名和密码
+            var name = nameInp.value
+            var pwd = pwdInp.value
+            // 验证
+            if (!name || !pwd)
+                return alert('用户名和密码不能为空')
+            // 发送ajax请求
+            var xhr = new XMLHttpRequest()
+            xhr.open('POST', '地址', true)
+            xhr.onload = function () {
+                var res = JSON.parse(xhr)
+                if (res.code == 0) {
+                    tips.style.display = 'block'
+                } else {
+                    window.location.href = '../html5+css3/CSS3_3D属性.html'
+                }
+            }
+            xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+            xhr.send('username=' + name + '&password=' + pwd)
+        }
+    </script>
 </body>
 
 </html>
